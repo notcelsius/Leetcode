@@ -5,8 +5,8 @@ public:
         int l = 0;
         int maxLength = 0;
         for (int r = 0; r < s.size(); r++) {
-            if (freq.count(s[r]) >= 1) {
-                while (freq.count(s[r]) >= 1) {
+            if (freq.count(s[r]) == 1) {
+                while (freq.count(s[r]) == 1) {
                     freq.erase(s[l]);
                     l++;
                 }

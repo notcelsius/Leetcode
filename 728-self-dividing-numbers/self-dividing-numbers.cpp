@@ -4,13 +4,14 @@ public:
         vector<int> res;
         for (int i = left; i <= right; i++) {
             bool divisible = true;
-            string num = to_string(i);
-            for (int j = 0; j < num.size(); j++) {
-                int d = num[j] - '0';
+            int x = i;
+            while (x > 0) {
+                int d = x % 10;
                 if (d == 0 || i % d != 0) {
                     divisible = false;
                     break;
                 }
+                x /= 10;
             }
             if (divisible) {
                 res.push_back(i);

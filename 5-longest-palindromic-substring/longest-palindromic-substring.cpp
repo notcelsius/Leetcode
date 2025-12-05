@@ -15,6 +15,7 @@ public:
                 l--;
                 r++;
             }
+            // even case
             l = i;
             r = i + 1;
             while (l >= 0 && r < s.size() && s[l] == s[r]) {

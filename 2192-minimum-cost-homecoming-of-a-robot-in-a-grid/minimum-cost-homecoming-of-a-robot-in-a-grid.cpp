@@ -14,7 +14,6 @@ public:
                 i--;
                 cost += rowCosts[i];
             }
-            cout << cost << endl;
         }
         // while not on same col
         i = startPos[1];
@@ -28,7 +27,6 @@ public:
                 i--;
                 cost += colCosts[i];
             }
-            cout << cost << endl;
         }
 
         return cost;

@@ -1,36 +1,32 @@
 class Solution {
 public:
-    int minCost(vector<int>& startPos, vector<int>& homePos, vector<int>& rowCosts, vector<int>& colCosts) {
-        int cost = 0;
-        // while not on the same row
-        int i = startPos[0];
-        int j = homePos[0];
-        while (i != j) {
-            if (i < j) {
-                i++;
-                cost += rowCosts[i];
-            }
-            else {
-                i--;
-                cost += rowCosts[i];
-            }
-            cout << cost << endl;
-        }
-        // while not on same col
-        i = startPos[1];
-        j = homePos[1];
-        while (i != j) {
-            if (i < j) {
-                i++;
-                cost += colCosts[i];
-            }
-            else {
-                i--;
-                cost += colCosts[i];
-            }
-            cout << cost << endl;
-        }
+    int minCost(vector<int>& startPos, vector<int>& homePos,
+                vector<int>& rowCosts, vector<int>& colCosts) {
+        int startRow = startPos[0];
+        int startCol = startPos[1];
 
-        return cost;
+        int endRow = homePos[0];
+        int endCol = homePos[1];
+
+        int ans = 0;
+        if (startRow < endRow) {
+            for (int i = startRow + 1; i <= endRow; i++) {
+                ans += rowCosts[i];
+            }
+        } else {
+            for (int i = startRow - 1; i >= endRow; i--) {
+                ans += rowCosts[i];
+            }
+        }
+        if (startCol < endCol) {
+            for (int i = startCol + 1; i <= endCol; i++) {
+                ans += colCosts[i];
+            }
+        } else {
+            for (int i = startCol - 1; i >= endCol; i--) {
+                ans += colCosts[i];
+            }
+        }
+        return ans;
     }
 };

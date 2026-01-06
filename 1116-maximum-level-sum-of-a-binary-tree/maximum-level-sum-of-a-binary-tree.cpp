@@ -19,12 +19,9 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         while (!q.empty()) {
-            cout << "lvl: " << lvl << endl;
             int lvlSize = q.size();
-            cout << "lvlSize:" << lvlSize << endl;
             for (int i = 0; i < lvlSize; i++) {
                     sum += q.front()->val;
-                    cout << sum << endl;
                     if (q.front()->left) {
                         q.push(q.front()->left);
                     }
